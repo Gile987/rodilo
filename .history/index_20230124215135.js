@@ -7,7 +7,7 @@ client
 	.login(client.config.token)
 	.then(() => {
 		console.log(`Logged in as ${client.user.tag}`);
-		client.user.setActivity('with Discord.js');
+		client.user.setActivity('with Discord.js', { type: 'PLAYING' });
 	})
 	.catch((err) => {
 		console.error(err);
