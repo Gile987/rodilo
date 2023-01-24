@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Gile987/rodilo#readme",
   "dependencies": {
+    "ascii-table": "^0.0.9",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "glob": "^8.1.0"
