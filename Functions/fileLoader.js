@@ -8,4 +8,4 @@ async function loadFiles(dirName) {
   return files;
 } 
 
-module.exports = { loadFiles }
+module.exports = { loadFiles };
