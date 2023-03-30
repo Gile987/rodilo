@@ -22,12 +22,31 @@ client.commands = new Collection();
 client.login(client.config.token)
 loadEvents(client);
 
+const responses = {
+  osam: "na kurcu te nosam",
+  maja: "apis me za jaja",
+	ulje: "srknes mi iz bulje"
+};
+
+const getRhyme = (word) => {
+  const lastChar = word[word.length - 1];
+  if (lastChar === "?" || lastChar === "!") {
+    return responses[word.slice(0, -1)];
+  }
+  return responses[word];
+};
+
 client.on('messageCreate', message => {
-	console.log(`${message.author.tag}: ${message.content}`);
-	if (!message.author.bot) {
-		if (message.content.endsWith('osam')) {
-			message.reply('na kurcu te nosam');
-		}
-	}
+  console.log(`${message.author.tag}: ${message.content}`);
+  if (!message.author.bot) {
+    const words = ['osam', 'maja', 'ulje'];
+    for (const word of words) {
+      const regex = new RegExp(`${word}(\\b|[!?.,]?\\s*)[!?.,]?\\s*$`, "i");
+      if (message.content.match(regex)) {
+        message.reply(getRhyme(word));
+        break;
+      }
+    }
+  }
 });
 
