@@ -11,7 +11,7 @@ module.exports = {
 
     const command = client.commands.get(interaction.commandName);
     if(!command) return interaction.reply({
-      content: "Command not found",
+      content: "Stavim ti ga",
       ephemeral: true
     });
 
