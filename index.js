@@ -73,6 +73,11 @@ const responses = {
   glas: "apis me za kobas",
   pakao: "mog si zvakao",
   nolo: "poljubi me u dupe golo",
+  nema: "od moje kite hvata te trema",
+  voli: "od mog te guza boli",
+  nulu: "posaftas mi frulu",
+  igra: "na mom se vrtis kao cigra",
+  pakaleo: "na moj seo"
 };
 
 const getRhyme = (word) => {
@@ -90,12 +95,15 @@ client.on('messageCreate', message => {
       'osam','maja', 'ulje', 'audi', 'ipo', 'molim', 'ladja', 'mastilo', 'city', 'jedi', 'gari', 'stari', 'baru',
       'hulu', 'druze', 'sala', 'staru', 'rupe', 'nole', 'spakovo', 'solo', 'polo', 'yolo', 'spakovao', 'zakovo', 'zakovao',
       'krug', 'valja', 'vala', 'paru', 'stara', 'ormaru', 'goku', 'chodi', 'vodi', 'naucio', 'zasto',
-      'dvojka', 'dvojku', 'trojka', 'trojku', 'sony', 'soni', 'roki', 'vic', 'slic', 'blic', 'glas', 'pakao', 'nolo'
+      'dvojka', 'dvojku', 'trojka', 'trojku', 'sony', 'soni', 'roki', 'vic', 'slic', 'blic', 'glas', 'pakao', 'nolo', 'nema',
+      'voli', 'nulu', 'igra', 'pakaleo'
     ];
     for (const word of words) {
       const regex = new RegExp(`\\b${word}(\\b|[!?.,]?\\s*)[!?.,]?\\s*$`, "i");
-      if (message.content.match(regex)) {
-        message.reply(getRhyme(word));
+      if (message.content.match(regex) && Math.random() <= 0.1) {
+        // add message reply, but also add a html <br> tag to make it look like a new line
+        // message.reply(`${getRhyme(word)}\n <:secretlevel:846502619178205244>Rodilo bot<:secretlevel:846502619178205244> Made possible by :flag_rs:Bojan:flag_rs:`);
+        message.reply(`${getRhyme(word)}`);
         break;
       }
     }
