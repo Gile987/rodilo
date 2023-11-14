@@ -27,7 +27,7 @@ loadEvents(client);
 
 const getRhyme = (word) => {
   const lastChar = word[word.length - 1];
-  if (lastChar === "?" || lastChar === "!") {
+  if (lastChar === "?" || lastChar === "!" || lastChar === ".") {
     return responses[word.slice(0, -1)];
   }
   return responses[word];
